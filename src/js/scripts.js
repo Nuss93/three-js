@@ -16,7 +16,6 @@ const orbit = new OrbitControls(camera, renderer.domElement)
 const axesHelper = new THREE.AxesHelper(5)
 scene.add(axesHelper)
 
-// camera.position.z = 5
 camera.position.set(-10,30,30)
 orbit.update()
 
