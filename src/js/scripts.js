@@ -3,11 +3,8 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import * as dat from 'dat.gui'
 
 const renderer = new THREE.WebGLRenderer()
-
 renderer.shadowMap.enabled = true
-
 renderer.setSize(window.innerWidth, window.innerHeight)
-
 document.body.appendChild(renderer.domElement)
 
 const scene = new THREE.Scene();
@@ -20,6 +17,8 @@ scene.add(axesHelper)
 
 camera.position.set(-10,30,30)
 orbit.update()
+
+scene.fog = new THREE.Fog(0xffffff, 0, 200)
 
 const ambientLight = new THREE.AmbientLight(0x333333)
 scene.add(ambientLight)
@@ -47,6 +46,7 @@ spotLight.castShadow = true;
 const sLightHelper = new THREE.SpotLightHelper(spotLight)
 scene.add(sLightHelper)
 
+// ======= GEOMETRY SHAPES =======
 const boxGeometry = new THREE.BoxGeometry( 1, 1, 1 );
 const boxMaterial = new THREE.MeshStandardMaterial( { color: 0x6BAF7A } );
 const box = new THREE.Mesh( boxGeometry, boxMaterial );
